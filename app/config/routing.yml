@@ -1,3 +1,7 @@
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+
+appbundle:
+    resource: "@AppBundle/Resources/config/routing.yml"
+    prefix:   /

@@ -10,4 +10,14 @@ namespace AppBundle\Repository;
  */
 class RoomRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getAllRooms()
+    {
+        $qb = $this->createQueryBuilder('r');
+
+        return $qb
+            ->getQuery()
+            ->getResult();
+
+    }
+
 }
