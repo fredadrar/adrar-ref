@@ -77,52 +77,5 @@ class Equipment
     {
         return $this->name;
     }
-
-    /**
-     * Set room
-     *
-     * @param \AppBundle\Entity\Room $room
-     *
-     * @return Equipment
-     */
-    public function setRoom(\AppBundle\Entity\Room $room = null)
-    {
-        $this->room = $room;
-
-        return $this;
-    }
-
-    /**
-     * Get room
-     *
-     * @return \AppBundle\Entity\Room
-     */
-    public function getRoom()
-    {
-        return $this->room;
-    }
-
-    /**
-     * Set category
-     *
-     * @param \AppBundle\Entity\Category $category
-     *
-     * @return Equipment
-     */
-    public function setCategory(\AppBundle\Entity\Category $category = null)
-    {
-        $this->category = $category;
-
-        return $this;
-    }
-
-    /**
-     * Get category
-     *
-     * @return \AppBundle\Entity\Category
-     */
-    public function getCategory()
-    {
-        return $this->category;
-    }
 }
+

@@ -70,45 +70,5 @@ class Room
     {
         return $this->name;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->equipments = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add equipment
-     *
-     * @param \AppBundle\Entity\Equipment $equipment
-     *
-     * @return Room
-     */
-    public function addEquipment(\AppBundle\Entity\Equipment $equipment)
-    {
-        $this->equipments[] = $equipment;
-
-        return $this;
-    }
-
-    /**
-     * Remove equipment
-     *
-     * @param \AppBundle\Entity\Equipment $equipment
-     */
-    public function removeEquipment(\AppBundle\Entity\Equipment $equipment)
-    {
-        $this->equipments->removeElement($equipment);
-    }
-
-    /**
-     * Get equipments
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getEquipments()
-    {
-        return $this->equipments;
-    }
 }
+

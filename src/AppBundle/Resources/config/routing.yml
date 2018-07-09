@@ -1,0 +1,14 @@
+room_home:
+    path:     room
+    defaults:
+        _controller: AppBundle:Room:index
+
+room_home_add:
+    path:     room/add
+    defaults:
+        _controller: AppBundle:Room:add
+
+room_home_delete:
+    path:     room/delete/{id}
+    defaults:
+        _controller: AppBundle:Room:delete

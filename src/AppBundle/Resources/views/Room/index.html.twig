@@ -1,0 +1,34 @@
+{% extends "layout.html.twig" %}
+
+{% block body %}
+
+<div class="accueil col-lg-12">
+    <h1>Rooms</h1>
+</div>
+
+    <a class="btn btn-success" href="{{ path('room_home_add') }}" role="button">Ajouter une salle</a>
+
+
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nom de la salle</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for room in listroom %}
+            <tr>
+                <td>{{ room.id }}</td>
+                <td>{{ room.name }}</td>
+                <td><a class="btn btn-danger" href="{{ path('room_home_delete', { 'id': room.id}) }}" role="button">Supprimer</a></td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
+
