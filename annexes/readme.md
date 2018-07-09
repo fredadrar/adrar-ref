@@ -1,0 +1,1 @@
+Dossier pour stocker toutes les ressources en plus du projet.
