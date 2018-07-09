@@ -3,8 +3,8 @@ parameters:
     database_host: 192.168.40.11
     database_port: null
     database_name: adrar-ref
-    database_user: root
-    database_password: null
+    database_user: fredlabedan
+    database_password: adrar
     mailer_transport: smtp
     mailer_host: 127.0.0.1
     mailer_user: null
