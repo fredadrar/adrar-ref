@@ -12,3 +12,25 @@ room_home_delete:
     path:     room/delete/{id}
     defaults:
         _controller: AppBundle:Room:delete
+
+
+equipment_home:
+    path:     equipment
+    defaults:
+        _controller: AppBundle:Equipment:index
+
+equipment_home_add:
+    path:     equipment/add
+    defaults:
+        _controller: AppBundle:Equipment:add
+
+equipment_home_delete:
+    path:     equipment/delete/{id}
+    defaults:
+        _controller: AppBundle:Equipment:delete
+
+
+code_home:
+    path:     codebarre
+    defaults:
+        _controller: AppBundle:BarCode:index

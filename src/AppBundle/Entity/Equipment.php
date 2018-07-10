@@ -44,6 +44,8 @@ class Equipment
     private $name;
 
 
+
+
     /**
      * Get id
      *
@@ -124,5 +126,29 @@ class Equipment
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Set index
+     *
+     * @param integer $index
+     *
+     * @return Equipment
+     */
+    public function setIndex($index)
+    {
+        $this->index = $index;
+
+        return $this;
+    }
+
+    /**
+     * Get index
+     *
+     * @return integer
+     */
+    public function getIndex()
+    {
+        return $this->index;
     }
 }

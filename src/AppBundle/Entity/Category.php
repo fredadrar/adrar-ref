@@ -37,6 +37,20 @@ class Category
 
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="compteur", type="integer")
+     */
+    private $compteur;
+
+
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->name;
+    }
+
+    /**
      * Get id
      *
      * @return int
@@ -109,5 +123,29 @@ class Category
     public function getEquipments()
     {
         return $this->equipments;
+    }
+
+    /**
+     * Set index
+     *
+     * @param integer $compteur
+     *
+     * @return Category
+     */
+    public function setCompteur($compteur)
+    {
+        $this->compteur = $compteur;
+
+        return $this;
+    }
+
+    /**
+     * Get index
+     *
+     * @return integer
+     */
+    public function getCompteur()
+    {
+        return $this->compteur;
     }
 }

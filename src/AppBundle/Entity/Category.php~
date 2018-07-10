@@ -37,6 +37,20 @@ class Category
 
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="index", type="integer")
+     */
+    private $index;
+
+
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->name;
+    }
+
+    /**
      * Get id
      *
      * @return int
@@ -69,5 +83,45 @@ class Category
     {
         return $this->name;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->equipments = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add equipment
+     *
+     * @param \AppBundle\Entity\Equipment $equipment
+     *
+     * @return Category
+     */
+    public function addEquipment(\AppBundle\Entity\Equipment $equipment)
+    {
+        $this->equipments[] = $equipment;
+
+        return $this;
+    }
+
+    /**
+     * Remove equipment
+     *
+     * @param \AppBundle\Entity\Equipment $equipment
+     */
+    public function removeEquipment(\AppBundle\Entity\Equipment $equipment)
+    {
+        $this->equipments->removeElement($equipment);
+    }
+
+    /**
+     * Get equipments
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEquipments()
+    {
+        return $this->equipments;
+    }
+}

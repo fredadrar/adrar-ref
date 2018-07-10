@@ -10,4 +10,16 @@ namespace AppBundle\Repository;
  */
 class EquipmentRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getAllEquipments()
+    {
+        $qb = $this->createQueryBuilder('e');
+
+        return $qb
+            ->getQuery()
+            ->getResult();
+
+    }
+
+
+
 }
