@@ -1,0 +1,28 @@
+AppBundle\Entity\Room:
+    attributes:
+        id:
+            groups: ['room', 'roomWithEquipment']
+        name:
+            groups: ['room', 'roomWithEquipment']
+        equipments:
+            groups: ['roomWithEquipment']
+
+AppBundle\Entity\Category:
+    attributes:
+        id:
+            groups: ['category']
+        name:
+            groups: ['category', 'roomWithEquipment']
+        index:
+            groups: ['category']
+
+AppBundle\Entity\Equipment:
+    attributes:
+        id:
+            groups: ['equipment']
+        name:
+            groups: ['equipment', 'roomWithEquipment']
+        room:
+            groups: ['equipment']
+        category:
+            groups: ['equipment', 'roomWithEquipment']
