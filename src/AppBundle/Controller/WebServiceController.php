@@ -127,10 +127,10 @@ class WebServiceController extends Controller
 //		}
 //		else {
 //			$em = $this->getDoctrine()->getManager();
-//			$equipment = $this->getDoctrine()->getRepository(Equipment::class)->findOneBy( ['name' => $name] );
+//			$equipment = $this->getDoctrine()->getRepository(equipment::class)->findOneBy( ['name' => $name] );
 //
 //			if ( !$equipment) {
-//				$equipment = new Equipment();
+//				$equipment = new equipment();
 //				$equipment->setCategory($category)
 //						  ->setName($name)
 //						  ->setRoom($room);
@@ -159,8 +159,8 @@ class WebServiceController extends Controller
 //		$equipmentName = $request->request->get('equipment');
 //		$roomId = $request->request->get('room');
 //
-//		/** @var Equipment $equipment */
-//		$equipment = $this->getDoctrine()->getRepository(Equipment::class)->findBy(['name' => $equipmentName]);
+//		/** @var equipment $equipment */
+//		$equipment = $this->getDoctrine()->getRepository(equipment::class)->findBy(['name' => $equipmentName]);
 //
 //		if ($equipment) {
 //			$equipment->setRoom($roomId);

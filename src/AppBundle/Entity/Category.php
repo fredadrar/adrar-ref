@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -12,7 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Category
 {
-
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Equipment", mappedBy="category")
      * @ORM\JoinColumn(nullable=true)
@@ -31,22 +31,19 @@ class Category
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
      */
     private $name;
-
 
     /**
      * @var int
      *
-     * @ORM\Column(name="compteur", type="integer")
+     * @ORM\Column(name="compteur", type="integer", nullable=false)
      */
     private $compteur;
-
-
+    
     public function __toString()
     {
-        // TODO: Implement __toString() method.
         return $this->name;
     }
 
@@ -88,7 +85,7 @@ class Category
      */
     public function __construct()
     {
-        $this->equipments = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->equipments = new ArrayCollection();
     }
 
     /**
@@ -98,7 +95,7 @@ class Category
      *
      * @return Category
      */
-    public function addEquipment(\AppBundle\Entity\Equipment $equipment)
+    public function addEquipment(Equipment $equipment)
     {
         $this->equipments[] = $equipment;
 
@@ -110,7 +107,7 @@ class Category
      *
      * @param \AppBundle\Entity\Equipment $equipment
      */
-    public function removeEquipment(\AppBundle\Entity\Equipment $equipment)
+    public function removeEquipment(Equipment $equipment)
     {
         $this->equipments->removeElement($equipment);
     }
@@ -126,7 +123,7 @@ class Category
     }
 
     /**
-     * Set index
+     * Set compteur
      *
      * @param integer $compteur
      *
@@ -140,7 +137,7 @@ class Category
     }
 
     /**
-     * Get index
+     * Get compteur
      *
      * @return integer
      */

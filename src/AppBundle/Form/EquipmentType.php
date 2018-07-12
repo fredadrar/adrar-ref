@@ -15,8 +15,8 @@ class EquipmentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('category')
-            ->add('save', SubmitType::class);
+            ->add('category', null, ['label'=>'Catégorie : '])
+            ->add('save', SubmitType::class, ['label'=>'Générer']);
     }/**
      * {@inheritdoc}
      */

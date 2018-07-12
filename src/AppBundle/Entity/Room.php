@@ -2,23 +2,22 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Room
+ * room
  *
  * @ORM\Table(name="room")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\RoomRepository")
  */
 class Room
 {
-	
 	/**
 	 * @ORM\OneToMany(targetEntity="AppBundle\Entity\Equipment", mappedBy="room")
 	 * @ORM\JoinColumn(nullable=true)
 	 */
 	private $equipments;
-	
 	
 	/**
 	 * @var int
@@ -35,7 +34,6 @@ class Room
 	 * @ORM\Column(name="name", type="string", length=255)
 	 */
 	private $name;
-	
 	
 	/**
 	 * Get id
@@ -70,12 +68,13 @@ class Room
 	{
 		return $this->name;
 	}
+	
 	/**
 	 * Constructor
 	 */
 	public function __construct()
 	{
-		$this->equipments = new \Doctrine\Common\Collections\ArrayCollection();
+		$this->equipments = new ArrayCollection();
 	}
 	
 	/**
@@ -85,7 +84,7 @@ class Room
 	 *
 	 * @return Room
 	 */
-	public function addEquipment(\AppBundle\Entity\Equipment $equipment)
+	public function addEquipment(Equipment $equipment)
 	{
 		$this->equipments[] = $equipment;
 		
@@ -97,7 +96,7 @@ class Room
 	 *
 	 * @param \AppBundle\Entity\Equipment $equipment
 	 */
-	public function removeEquipment(\AppBundle\Entity\Equipment $equipment)
+	public function removeEquipment(Equipment $equipment)
 	{
 		$this->equipments->removeElement($equipment);
 	}

@@ -6,10 +6,6 @@
         <h1>Equipements</h1>
     </div>
 
-    <a class="btn btn-success" href="{{ path('equipment_home_add') }}" role="button">Générer étiquette</a>
-
-
-
     <table class="table">
         <thead>
         <tr>
@@ -25,8 +21,7 @@
                 <td>{{ equipment.id }}</td>
                 <td>{{ equipment.name }}</td>
                 <td>{{ equipment.category }}</td>
-                {#<td><a class="btn btn-danger" href="{{ path('room_home_delete', { 'id': room.id}) }}" role="button">Supprimer</a></td>#}
-
+                <td><a class="btn btn-danger" href="{{ path('equipment_home_delete', { 'id': equipment.id}) }}" role="button">Supprimer</a></td>
             </tr>
         {% endfor %}
         </tbody>

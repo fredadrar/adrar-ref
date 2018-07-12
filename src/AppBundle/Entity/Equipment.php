@@ -5,25 +5,22 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Equipment
+ * equipment
  *
  * @ORM\Table(name="equipment")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\EquipmentRepository")
  */
 class Equipment
 {
-
-
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Room", inversedBy="equipments")
-     * @ORM\JoinColumn(name="room_id", referencedColumnName="id", nullable=true)
+     * @ORM\JoinColumn(name="room_id", referencedColumnName="id", nullable=false)
      */
     private $room;
-
-
+    
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Category", inversedBy="equipments")
-     * @ORM\JoinColumn(name="category_id", referencedColumnName="id", nullable=true)
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id", nullable=false)
      */
     private $category;
 
@@ -39,12 +36,9 @@ class Equipment
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
      */
     private $name;
-
-
-
 
     /**
      * Get id
@@ -87,7 +81,7 @@ class Equipment
      *
      * @return Equipment
      */
-    public function setRoom(\AppBundle\Entity\Room $room = null)
+    public function setRoom(Room $room = null)
     {
         $this->room = $room;
 
@@ -111,7 +105,7 @@ class Equipment
      *
      * @return Equipment
      */
-    public function setCategory(\AppBundle\Entity\Category $category = null)
+    public function setCategory(Category $category = null)
     {
         $this->category = $category;
 
@@ -126,29 +120,5 @@ class Equipment
     public function getCategory()
     {
         return $this->category;
-    }
-
-    /**
-     * Set index
-     *
-     * @param integer $index
-     *
-     * @return Equipment
-     */
-    public function setIndex($index)
-    {
-        $this->index = $index;
-
-        return $this;
-    }
-
-    /**
-     * Get index
-     *
-     * @return integer
-     */
-    public function getIndex()
-    {
-        return $this->index;
     }
 }

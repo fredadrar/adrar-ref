@@ -9,6 +9,7 @@
 namespace AppBundle\Controller;
 
 
+use AppBundle\Entity\Equipment;
 use AppBundle\Entity\Room;
 use AppBundle\Form\RoomType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -30,8 +31,7 @@ class RoomController extends Controller
             'listroom'        => $listRoom,
         ));
     }
-
-
+    
     public function addAction(Request $request)
     {
 
@@ -61,21 +61,25 @@ class RoomController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $room = $em->getRepository('AppBundle:Room')->find($id);
-
-
+        $reserve = $em->getRepository('AppBundle:Room')->findOneBy(['name' => 'Réserve']);
+        
         $form = $this->get('form.factory')->create();
 
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+        	
+        	$equipments = $em->getRepository(Equipment::class)->findBy(['room' => $room]);
+        	foreach ($equipments as $equipment) {
+        		$equipment->setRoom($reserve);
+			}
             $em->remove($room);
             $em->flush();
-
-
+            
             return $this->redirectToRoute('room_home');
         }
 
         return $this->render('@App/Room/delete.html.twig', array(
             'room' => $room,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 }

@@ -1,0 +1,18 @@
+{% extends "layout.html.twig" %}
+
+{% block body %}
+
+    <div class="well mt-5">
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+
+        {{ form_row(form.category) }}
+
+        {{ form_row(form.save) }}
+
+        {{ form_end(form) }}
+    </div>
+
+    <a class="btn btn-danger mt-5" href="{{ path('equipment_home') }}" role="button">Retour à la liste des équipements</a>
+
+{% endblock %}

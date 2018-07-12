@@ -1,6 +1,6 @@
 # This file is auto-generated during the composer install
 parameters:
-    database_host: 192.168.40.33
+    database_host: 192.168.40.27
     database_port: null
     database_name: adrar-ref
     database_user: fredlabedan

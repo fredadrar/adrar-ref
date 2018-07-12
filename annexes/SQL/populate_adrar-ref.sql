@@ -6,17 +6,18 @@ DELETE FROM `room`;
 
 INSERT INTO `category` VALUES
 (1,'tour',9),
-(2,'écran',9),
+(2,'ecran',9),
 (3,'imprimante',3),
 (4,'projecteur',3);
 
 INSERT INTO `room` VALUES
-(1,'Salle 1'),
-(2,'Salle 2'),
-(3,'Salle 3'),
-(4,'Salle 4'),
-(5,'Salle 5'),
-(6,'La Salle Certif');
+(1,'Réserve'),
+(2,'Salle 1'),
+(3,'Salle 2'),
+(4,'Salle 3'),
+(5,'Salle 4'),
+(6,'Salle 5'),
+(7,'La Salle Certif');
 
 INSERT INTO `equipment` VALUES
 (1,1,1,'tour_1'),

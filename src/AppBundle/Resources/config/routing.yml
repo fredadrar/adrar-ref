@@ -1,3 +1,8 @@
+homepage:
+    path:     index
+    defaults:
+        _controller: AppBundle:Default:index
+
 room_home:
     path:     room
     defaults:
@@ -19,11 +24,6 @@ equipment_home:
     defaults:
         _controller: AppBundle:Equipment:index
 
-equipment_home_add:
-    path:     equipment/add
-    defaults:
-        _controller: AppBundle:Equipment:add
-
 equipment_home_delete:
     path:     equipment/delete/{id}
     defaults:
@@ -34,3 +34,8 @@ code_home:
     path:     codebarre
     defaults:
         _controller: AppBundle:BarCode:index
+
+code_home_add:
+    path:     equipment/add
+    defaults:
+        _controller: AppBundle:BarCode:add

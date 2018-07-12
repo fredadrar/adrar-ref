@@ -7,6 +7,9 @@
     <p>
         Etes-vous certain de vouloir supprimer la salle "{{ room.name }}" ?
     </p>
+    <p>
+        Tous les équipements présents dans cette salle seront déplacés dans la réserve.
+    </p>
 
     {# On met l'id de l'annonce dans la route de l'action du formulaire #}
     <form action="{{ path('room_home_delete', {'id': room.id}) }}" method="post">
