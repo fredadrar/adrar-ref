@@ -11,7 +11,6 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Equipment;
 use AppBundle\Form\EquipmentType;
-use BaconQrCode\Encoder\QrCode;
 use Com\Tecnick\Barcode\Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;

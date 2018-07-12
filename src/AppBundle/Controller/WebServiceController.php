@@ -25,7 +25,6 @@ class WebServiceController extends Controller
 	 */
 	public function getAllRoomsAction(SerializerInterface $serializer)
 	{
-		
 		$rooms = $this->getDoctrine()->getRepository(Room::class)->findAll();
 
 		$jsonContent = $serializer->serialize($rooms, 'json', [
@@ -50,8 +49,8 @@ class WebServiceController extends Controller
 		
 		$jsonReceived = json_decode($request->getContent(), true);
 		
-		$name = $jsonReceived['name'];
-		$room = $this->getDoctrine()->getRepository(Room::class)->find( $jsonReceived['room'] );
+		$name = $jsonReceived['equipment'];
+		$room = $this->getDoctrine()->getRepository(Room::class)->findOneBy( ['name' => $jsonReceived['room']] );
 		
 		//On extrait la catégorie du nom du matériel :
 		preg_match('~.+(?=_)~', $name, $out);
