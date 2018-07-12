@@ -15,15 +15,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class BarCodeController extends Controller
 {
-    public function indexAction(Request $request)
-    {
 
-
-        return $this->render('@App/CodeBarre/index.html.twig', array(
-            'barcodename' => $request->get('barcodename')
-        ));
-
-
-    }
 
 }

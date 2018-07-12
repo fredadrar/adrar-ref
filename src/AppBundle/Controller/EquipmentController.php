@@ -11,6 +11,8 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Equipment;
 use AppBundle\Form\EquipmentType;
+use BaconQrCode\Encoder\QrCode;
+use Com\Tecnick\Barcode\Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -48,14 +50,33 @@ class EquipmentController extends Controller
 
             $barCodeName = $category->getName()."_".$category->getCompteur();
 
+            $barcode = new \Com\Tecnick\Barcode\Barcode();
+
+            // generate a barcode
+            try {
+                $bobj = $barcode->getBarcodeObj('C128',
+                    $barCodeName,
+                    300,
+                    50,
+                    'black',
+                    [10, 10, 10, 10])
+                    ->setBackgroundColor('white');
+            } catch (Exception $e) {
+            } catch (\Com\Tecnick\Color\Exception $e) {
+            }
+
+            // output the barcode as HTML div (see other output formats in the documentation and examples)
+            $codeBarre = $bobj->getHtmlDiv();
+
             $category->setCompteur($category->getCompteur()+1);
 
             $em = $this->getDoctrine()->getManager();
             $em->flush();
 
 
-           return $this->redirectToRoute('code_home', array(
-                'barcodename' => $barCodeName
+
+           return $this->render('@App/CodeBarre/index.html.twig', array(
+                'barcodename' => $codeBarre
             ));
 
 
