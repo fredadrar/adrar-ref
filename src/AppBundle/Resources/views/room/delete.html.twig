@@ -13,12 +13,12 @@
 
     {# On met l'id de l'annonce dans la route de l'action du formulaire #}
     <form action="{{ path('room_home_delete', {'id': room.id}) }}" method="post">
-        <a href="{{ path('room_home', {'id': room.id}) }}" class="btn btn-default">
+        <a href="{{ path('room_home', {'id': room.id}) }}" class="btn btn-sm btn-default">
             <i class="glyphicon glyphicon-chevron-left"></i>
             Retour à la liste des salles
         </a>
         {# Ici j'ai écrit le bouton de soumission à la main #}
-        <input type="submit" value="Supprimer" class="btn btn-danger" />
+        <input type="submit" value="Supprimer" class="btn btn-sm btn-outline-danger" />
         {# Ceci va générer le champ CSRF #}
         {{ form_rest(form) }}
     </form>

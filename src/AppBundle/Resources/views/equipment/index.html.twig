@@ -21,7 +21,7 @@
             <td>{{ equipment.id }}</td>
             <td>{{ equipment.name }}</td>
             <td>{{ equipment.category }}</td>
-            <td><a class="btn btn-danger" href="{{ path('equipment_home_delete', { 'id': equipment.id}) }}" role="button">Supprimer</a></td>
+            <td><a class="btn btn-sm btn-outline-danger" href="{{ path('equipment_home_delete', { 'id': equipment.id}) }}" role="button">Supprimer</a></td>
         </tr>
     {% endfor %}
     </tbody>
