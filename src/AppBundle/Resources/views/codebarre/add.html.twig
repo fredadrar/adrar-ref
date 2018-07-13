@@ -6,7 +6,8 @@
         {{ form_start(form) }}
         {{ form_errors(form) }}
 
-        {{ form_row(form.category) }}
+        {{ form_widget(form.category) }}
+        {{ form_widget(form.nombre) }}
 
         {{ form_row(form.save) }}
 

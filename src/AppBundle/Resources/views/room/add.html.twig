@@ -2,10 +2,10 @@
 
 {% block body %}
 
-    <a class="btn btn-danger" href="{{ path('room_home') }}" role="button">Retour à la liste des salles</a>
-
     <div class="well">
         {{ form(form) }}
     </div>
+
+    <a href="{{ path('room_home') }}" role="button">Retour à la liste des salles</a>
 
 {% endblock %}

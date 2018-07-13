@@ -1,0 +1,23 @@
+{% extends "layout.html.twig" %}
+
+{% block body %}
+
+    <h2>Supprimer une catégorie</h2>
+
+    <p>
+        Etes-vous certain de vouloir supprimer la catégorie "{{ category.name }}" ?
+    </p>
+
+    {# On met l'id de l'annonce dans la route de l'action du formulaire #}
+    <form action="{{ path('category_home_delete', {'id': category.id}) }}" method="post">
+        <a href="{{ path('category_home', {'id': category.id}) }}" class="btn btn-default">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Retour à la liste des catégories
+        </a>
+        {# Ici j'ai écrit le bouton de soumission à la main #}
+        <input type="submit" value="Supprimer" class="btn btn-danger" />
+        {# Ceci va générer le champ CSRF #}
+        {{ form_rest(form) }}
+    </form>
+
+{% endblock %}

@@ -2,29 +2,29 @@
 
 {% block body %}
 
-    <div class="accueil col-lg-12">
-        <h1>Equipements</h1>
-    </div>
+<div class="accueil col-lg-12">
+    <h1>Equipements</h1>
+</div>
 
-    <table class="table">
-        <thead>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Nom de l'équipement</th>
+        <th>Catégorie</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for equipment in listequipments %}
         <tr>
-            <th>Id</th>
-            <th>Nom de l'équipement</th>
-            <th>Categorie</th>
-            <th>Actions</th>
+            <td>{{ equipment.id }}</td>
+            <td>{{ equipment.name }}</td>
+            <td>{{ equipment.category }}</td>
+            <td><a class="btn btn-danger" href="{{ path('equipment_home_delete', { 'id': equipment.id}) }}" role="button">Supprimer</a></td>
         </tr>
-        </thead>
-        <tbody>
-        {% for equipment in listequipments %}
-            <tr>
-                <td>{{ equipment.id }}</td>
-                <td>{{ equipment.name }}</td>
-                <td>{{ equipment.category }}</td>
-                <td><a class="btn btn-danger" href="{{ path('equipment_home_delete', { 'id': equipment.id}) }}" role="button">Supprimer</a></td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    {% endfor %}
+    </tbody>
+</table>
 
 {% endblock %}

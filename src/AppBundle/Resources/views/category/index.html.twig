@@ -1,0 +1,41 @@
+{% extends "layout.html.twig" %}
+
+{% block body %}
+
+    <div class="accueil col-lg-12">
+        <h1>Catégories d'équipement</h1>
+    </div>
+
+    <a class="btn btn-success" href="{{ path('category_home_add') }}" role="button">Ajouter une catégorie</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Compteur</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for category in categories %}
+            <tr>
+                <td>{{ category.id }}</td>
+                <td>{{ category.name }}</td>
+                <td>{{ category.compteur }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a class="btn btn-sm btn-danger" href="{{ path('category_home_delete', { 'id': category.id }) }}" role="button">Supprimer</a>
+                        </li>
+                        <li>
+                            <a class="btn btn-sm btn-success" href="{{ path('category_home_edit', { 'id': category.id }) }}" role="button">Modifier</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -30,6 +30,27 @@ equipment_home_delete:
         _controller: AppBundle:Equipment:delete
 
 
+category_home:
+    path:     category
+    defaults:
+        _controller: AppBundle:Category:index
+
+category_home_add:
+    path:     category/add
+    defaults:
+        _controller: AppBundle:Category:new
+
+category_home_delete:
+    path:     category/delete/{id}
+    defaults:
+        _controller: AppBundle:Category:delete
+
+category_home_edit:
+    path:     category/edit/{id}
+    defaults:
+        _controller: AppBundle:Category:edit
+
+
 code_home:
     path:     codebarre
     defaults:
