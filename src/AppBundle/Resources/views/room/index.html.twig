@@ -12,14 +12,22 @@
     <tr>
         <th>Id</th>
         <th>Nom de la salle</th>
+        <th>Matériel présent</th>
         <th>Actions</th>
     </tr>
     </thead>
     <tbody>
-    {% for room in listroom %}
+    {% for room in listrooms %}
         <tr>
             <td>{{ room.id }}</td>
             <td>{{ room.name }}</td>
+            <td>
+                <ul class="list-unstyled">
+                    {% for equipment in room.equipments %}
+                    <li>{{ equipment.name }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
             <td><a class="btn btn-danger" href="{{ path('room_home_delete', { 'id': room.id}) }}" role="button">Supprimer</a></td>
         </tr>
     {% endfor %}
