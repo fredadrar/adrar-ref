@@ -19,41 +19,49 @@ class BarCodeController extends Controller
 	{
 		$equipment = new Equipment();
 		
-		$barCodeName ="";
+		$results = [];
 		
 		$form = $this->get('form.factory')->create(EquipmentType::class, $equipment);
 		
 		if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
 			
 			$category = $equipment->getCategory();
+			$nombre = $form['nombre']->getData();
 			
-			$barCodeName = $category->getName()."_".$category->getCompteur();
-			
-			$barcode = new \Com\Tecnick\Barcode\Barcode();
-			
-			// generate a barcode
-			try {
-				$bobj = $barcode->getBarcodeObj('C128',
-												$barCodeName,
-												300,
-												50,
-												'black',
-												[10, 10, 10, 10])
-								->setBackgroundColor('white');
+			for ($i = 0; $i < $nombre; $i++){
+				
+				$barCodeName = $category->getName()."_".$category->getCompteur();
+				
+				$barcode = new \Com\Tecnick\Barcode\Barcode();
+				
+				// generate a barcode
+				try {
+					$bobj = $barcode->getBarcodeObj('C128',
+													$barCodeName,
+													300,
+													50,
+													'black',
+													[10, 10, 10, 10])
+									->setBackgroundColor('white');
+				}
+				catch (Exception $e) {
+				}
+				
+				// output the barcode as HTML div (see other output formats in the documentation and examples)
+				$codeBarre = $bobj->getHtmlDiv();
+				
+				$category->setCompteur($category->getCompteur()+1);
+				
+				$results[$i]= [
+					'barCodeName' => $barCodeName,
+					'barCode' => $codeBarre];
 			}
-			catch (Exception $e) {
-			}
-			
-			// output the barcode as HTML div (see other output formats in the documentation and examples)
-			$codeBarre = $bobj->getHtmlDiv();
-			
-			$category->setCompteur($category->getCompteur()+1);
 			
 			$em = $this->getDoctrine()->getManager();
 			$em->flush();
 			
 			return $this->render('@App/codebarre/index.html.twig', array(
-				'barcodename' => $codeBarre
+				'results' => $results
 			));
 		}
 		

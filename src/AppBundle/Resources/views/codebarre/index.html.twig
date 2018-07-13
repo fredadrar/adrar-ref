@@ -2,6 +2,12 @@
 
 {% block body %}
 
-{{ barcodename|raw }}
+    {% for result in results %}
+
+    <div>
+        {{ result.barCode|raw }}
+        {{ result.barCodeName }}
+    </div>
+    {% endfor %}
 
 {% endblock %}

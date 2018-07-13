@@ -99,7 +99,7 @@ class WebServiceController extends Controller
 //		dump($form->getData());
 //		dump($equipment);
 //
-//		return new Response('pas bonn');
+//		return new Response('pas bon');
 
 //		$form = $this->createForm(EquipmentType::class, $equipment);
 //		$form->submit($jsonReceived); // Validation des données
