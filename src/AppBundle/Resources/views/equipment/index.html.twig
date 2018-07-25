@@ -12,6 +12,7 @@
         <th>Id</th>
         <th>Nom de l'équipement</th>
         <th>Catégorie</th>
+        <th>Salle</th>
         <th>Actions</th>
     </tr>
     </thead>
@@ -21,6 +22,7 @@
             <td>{{ equipment.id }}</td>
             <td>{{ equipment.name }}</td>
             <td>{{ equipment.category }}</td>
+            <td>{{ equipment.room.name }}</td>
             <td><a class="btn btn-sm btn-outline-danger" href="{{ path('equipment_home_delete', { 'id': equipment.id}) }}" role="button">Supprimer</a></td>
         </tr>
     {% endfor %}

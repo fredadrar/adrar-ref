@@ -38,10 +38,10 @@ class BarCodeController extends Controller
 				try {
 					$bobj = $barcode->getBarcodeObj('C128',
 													$barCodeName,
-													300,
-													50,
+													200,
+													80,
 													'black',
-													[10, 10, 10, 10])
+													[20, 20, 20, 20])
 									->setBackgroundColor('white');
 				}
 				catch (Exception $e) {
